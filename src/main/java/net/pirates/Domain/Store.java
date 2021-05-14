@@ -1,14 +1,15 @@
 package net.pirates.Domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import net.pirates.DTOs.AddStoreDTO;
+
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Store {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String name;
@@ -17,5 +18,27 @@ public class Store {
     private Integer level;
     private String address;
     private String phone;
-    private String businessTimes;// 수정 필요 SET?? List?
+
+    @OneToMany(mappedBy = "store", cascade = CascadeType.REMOVE)
+    private List<BusinessTime> businessTimes;
+
+    public Store(AddStoreDTO storeInfo) {
+        this.name = storeInfo.getName();
+
+    }
+
+    public Store() {
+
+    }
+
+    public Store(Long id, String name, String owner, String description, Integer level, String address, String phone, List<BusinessTime> businessTimes) {
+        this.id = id;
+        this.name = name;
+        this.owner = owner;
+        this.description = description;
+        this.level = level;
+        this.address = address;
+        this.phone = phone;
+        this.businessTimes = businessTimes;
+    }
 }
