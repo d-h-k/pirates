@@ -19,7 +19,7 @@ public class StoreController {
         this.storeService = storeService;
     }
 
-    @PostMapping("/stores")
+    @PostMapping
     public void addStore(@RequestBody AddStoreDTO storeInfo) {
         storeService.addStore(storeInfo);
     }
@@ -29,7 +29,7 @@ public class StoreController {
         storeService.addHoliday(holidayDTO);
     }
 
-    @GetMapping("/stores")
+    @GetMapping
     public List<StoreDTO> storeList() {
         return storeService.storeList();
     }
