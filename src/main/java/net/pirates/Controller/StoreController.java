@@ -3,6 +3,7 @@ package net.pirates.Controller;
 import net.pirates.DTOs.AddHolidayDTO;
 import net.pirates.DTOs.AddStoreDTO;
 import net.pirates.DTOs.StoreDTO;
+import net.pirates.DTOs.StoreDetailDTO;
 import net.pirates.Service.StoreService;
 import org.springframework.web.bind.annotation.*;
 
@@ -32,5 +33,17 @@ public class StoreController {
     public List<StoreDTO> storeList() {
         return storeService.storeList();
     }
+
+    @PostMapping("/detail")
+    public StoreDetailDTO storeDetail(@RequestBody Long id) {
+        return storeService.storeDetail(id);
+    }
+
+
+    @PostMapping("/delete")
+    public void storeDelete(@RequestBody Long id) {
+        storeService.delete(id);
+    }
+
 
 }

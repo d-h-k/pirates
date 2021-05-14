@@ -3,6 +3,7 @@ package net.pirates.Service;
 import net.pirates.DTOs.AddHolidayDTO;
 import net.pirates.DTOs.AddStoreDTO;
 import net.pirates.DTOs.StoreDTO;
+import net.pirates.DTOs.StoreDetailDTO;
 import net.pirates.Repository.StoreRepository;
 import org.springframework.stereotype.Service;
 
@@ -26,5 +27,12 @@ public class StoreService {
 
     public List<StoreDTO> storeList() {
         return new ArrayList<>();
+    }
+
+    public StoreDetailDTO storeDetail(Long id) {
+        return new StoreDetailDTO();
+    }
+
+    public void delete(Long id) {
     }
 }
