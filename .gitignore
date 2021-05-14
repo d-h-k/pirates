@@ -206,4 +206,6 @@ gradle-app.setting
 ### Gradle Patch ###
 **/build/
 
+.idea/misc.xml
+
 # End of https://www.toptal.com/developers/gitignore/api/java,gradle,macos,windows,intellij
