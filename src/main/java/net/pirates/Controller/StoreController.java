@@ -1,5 +1,6 @@
 package net.pirates.Controller;
 
+import net.pirates.DTOs.AddHolidayDTO;
 import net.pirates.DTOs.AddStoreDTO;
 import net.pirates.Service.StoreService;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,9 +18,15 @@ public class StoreController {
         this.storeService = storeService;
     }
 
-    @PostMapping("/add")
-    public void addstore(@RequestBody AddStoreDTO storeInfo) {
-        storeService.addstore(storeInfo);
+    @PostMapping("/stores")
+    public void addStore(@RequestBody AddStoreDTO storeInfo) {
+        storeService.addStore(storeInfo);
     }
+
+    @PostMapping("/holidays")
+    public void addHoliday(@RequestBody AddHolidayDTO holidayDTO) {
+        storeService.addHoliday(holidayDTO);
+    }
+
 
 }

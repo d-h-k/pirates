@@ -4,7 +4,7 @@ import net.pirates.Domain.Holiday;
 
 import java.util.List;
 
-public class AddHolyDTO {
+public class AddHolidayDTO {
     private Integer id;
     private List<Holiday> holiday;
 }
