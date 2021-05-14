@@ -1,9 +1,6 @@
 package net.pirates.Domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class BusinessTime {
@@ -11,6 +8,10 @@ public class BusinessTime {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @ManyToOne
+    @JoinColumn(foreignKey = @ForeignKey(name = "fk_business_times"))
+    private Store store;
 
     private Days day;
     private String open;

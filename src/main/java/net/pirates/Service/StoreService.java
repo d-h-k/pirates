@@ -4,6 +4,7 @@ import net.pirates.DTOs.AddHolidayDTO;
 import net.pirates.DTOs.AddStoreDTO;
 import net.pirates.DTOs.StoreDTO;
 import net.pirates.DTOs.StoreDetailDTO;
+import net.pirates.Domain.Store;
 import net.pirates.Repository.StoreRepository;
 import org.springframework.stereotype.Service;
 
@@ -20,6 +21,7 @@ public class StoreService {
     }
 
     public void addStore(AddStoreDTO storeInfo) {
+        storeRepository.save(new Store(storeInfo));
     }
 
     public void addHoliday(AddHolidayDTO holidayDTO) {

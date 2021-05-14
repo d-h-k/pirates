@@ -19,12 +19,17 @@ public class Store {
     private String address;
     private String phone;
 
-    @OneToMany(mappedBy = "store", cascade = CascadeType.REMOVE)
+    @OneToMany(mappedBy = "store")
     private List<BusinessTime> businessTimes;
 
     public Store(AddStoreDTO storeInfo) {
         this.name = storeInfo.getName();
-
+        this.owner = storeInfo.getOwner();
+        this.description = storeInfo.getDescription();
+        this.level = storeInfo.getLevel();
+        this.address = storeInfo.getAddress();
+        this.phone = storeInfo.getPhone();
+        this.businessTimes = storeInfo.getBusinessTimes();
     }
 
     public Store() {
