@@ -46,4 +46,64 @@ public class Store {
         this.phone = phone;
         this.businessTimes = businessTimes;
     }
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getOwner() {
+        return owner;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public Integer getLevel() {
+        return level;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public List<BusinessTime> getBusinessTimes() {
+        return businessTimes;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setLevel(Integer level) {
+        this.level = level;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public void setBusinessTimes(List<BusinessTime> businessTimes) {
+        this.businessTimes = businessTimes;
+    }
 }

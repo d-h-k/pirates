@@ -28,7 +28,21 @@ public class StoreService {
     }
 
     public List<StoreDTO> storeList() {
-        return new ArrayList<>();
+        List<Store> storeList = storeRepository.findAll();
+        List<StoreDTO> storeDTOList = new ArrayList<>();
+        for(Store store : storeList) {
+            storeDTOList.add(new StoreDTO(store));
+        }
+        /*
+
+        i.	점포명, 점포 설명, 영업상태(영업중/영업종료/휴무) 정보를 등급(level) 오름차순으로 조회
+        # 영업 상태 조건값
+        영업중 (OPEN) : 영업 open time <= 현재시간 <= 영업 close time
+        영업종료(CLOSE) : 현재시간 < 영업 open time, 현재시간 > 영업 close time
+        휴무(HOLIDAY) : 오늘날짜가 해당 점포의 등록된 휴무일일 경우
+         */
+
+
     }
 
     public StoreDetailDTO storeDetail(Long id) {
@@ -36,5 +50,6 @@ public class StoreService {
     }
 
     public void delete(Long id) {
+        storeRepository.deleteById(id);
     }
 }
