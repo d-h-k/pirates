@@ -6,6 +6,7 @@ import net.pirates.DTOs.StoreDTO;
 import net.pirates.DTOs.StoreDetailDTO;
 import net.pirates.Domain.Store;
 import net.pirates.Repository.StoreRepository;
+import net.pirates.exception.ElementNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -21,12 +22,14 @@ public class StoreService {
     }
 
     public void addStore(AddStoreDTO storeInfo) {
-        storeRepository.save(new Store(storeInfo));
+        Store addStore = new Store(storeInfo);
+        storeRepository.save(addStore);
     }
 
     public void addHoliday(AddHolidayDTO holidayDTO) {
-    }
 
+        // 추가
+    }
     public List<StoreDTO> storeList() {
         List<Store> storeList = storeRepository.findAll();
         List<StoreDTO> storeDTOList_OPEN = new ArrayList<>();
@@ -61,7 +64,8 @@ public class StoreService {
     }
 
     public StoreDetailDTO storeDetail(Long id) {
-        return new StoreDetailDTO();
+        Store store = storeRepository.findById(id).orElseThrow(() -> new ElementNotFoundException());
+        return new StoreDetailDTO(store);
     }
 
     public void delete(Long id) {
