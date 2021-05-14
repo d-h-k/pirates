@@ -34,7 +34,7 @@ public class StoreController {
         return storeService.storeList();
     }
 
-    @PostMapping("/detail")
+    @GetMapping("/detail")
     public StoreDetailDTO storeDetail(@RequestBody Long id) {
         return storeService.storeDetail(id);
     }
