@@ -5,7 +5,6 @@ import net.pirates.Domain.BusinessTime;
 import java.util.List;
 
 public class AddStoreDTO {
-    //@RequestBody
 
     private String name;
     private String owner;
