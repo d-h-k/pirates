@@ -13,24 +13,24 @@ public class BusinessTime {
     @JoinColumn(foreignKey = @ForeignKey(name = "fk_business_times"))
     private Store store;
 
-    private Days day;
+    private String day;
     private String open;
     private String close;
 
     public BusinessTime() {
     }
 
-    public BusinessTime(Days day, String open, String close) {
+    public BusinessTime(String day, String open, String close) {
         this.day = day;
         this.open = open;
         this.close = close;
     }
 
-    public Days getDay() {
+    public String getDay() {
         return day;
     }
 
-    public void setDay(Days day) {
+    public void setDay(String day) {
         this.day = day;
     }
 
