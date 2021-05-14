@@ -29,20 +29,35 @@ public class StoreService {
 
     public List<StoreDTO> storeList() {
         List<Store> storeList = storeRepository.findAll();
-        List<StoreDTO> storeDTOList = new ArrayList<>();
-        for(Store store : storeList) {
-            storeDTOList.add(new StoreDTO(store));
+        List<StoreDTO> storeDTOList_OPEN = new ArrayList<>();
+        List<StoreDTO> storeDTOList_CLOSE = new ArrayList<>();
+        List<StoreDTO> storeDTOList_HOLIDAY = new ArrayList<>();
+        for (Store store : storeList) {
+            StoreDTO storeDTO = new StoreDTO(store);
+
+            if (storeDTO.getBusinessStatus().equals("OPEN")) {
+                storeDTOList_OPEN.add(storeDTO);
+                continue;
+            }
+
+            if (storeDTO.getBusinessStatus().equals("CLOSE")) {
+                storeDTOList_CLOSE.add(storeDTO);
+                continue;
+            }
+
+            if (storeDTO.getBusinessStatus().equals("HOLIDAY")) {
+                storeDTOList_HOLIDAY.add(storeDTO);
+                continue;
+            }
+
         }
-        /*
 
-        i.	점포명, 점포 설명, 영업상태(영업중/영업종료/휴무) 정보를 등급(level) 오름차순으로 조회
-        # 영업 상태 조건값
-        영업중 (OPEN) : 영업 open time <= 현재시간 <= 영업 close time
-        영업종료(CLOSE) : 현재시간 < 영업 open time, 현재시간 > 영업 close time
-        휴무(HOLIDAY) : 오늘날짜가 해당 점포의 등록된 휴무일일 경우
-         */
+        List<StoreDTO> storeDTOListResult = new ArrayList<>();
+        storeDTOListResult.addAll(storeDTOList_OPEN);
+        storeDTOListResult.addAll(storeDTOList_CLOSE);
+        storeDTOListResult.addAll(storeDTOList_HOLIDAY);
 
-
+        return storeDTOListResult;
     }
 
     public StoreDetailDTO storeDetail(Long id) {
