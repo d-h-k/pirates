@@ -1,9 +1,6 @@
 package net.pirates.Service;
 
-import net.pirates.DTOs.AddHolidayDTO;
-import net.pirates.DTOs.AddStoreDTO;
-import net.pirates.DTOs.StoreDTO;
-import net.pirates.DTOs.StoreDetailDTO;
+import net.pirates.DTOs.*;
 import net.pirates.Domain.Store;
 import net.pirates.Repository.StoreRepository;
 import net.pirates.exception.ElementNotFoundException;
@@ -69,7 +66,14 @@ public class StoreService {
         return new StoreDetailDTO(store);
     }
 
-    public void delete(Long id) {
+    public ResponseDTO delete(Long id) {
+        Long beforeDelete = storeRepository.count();
         storeRepository.deleteById(id);
+        Long afterDelete = storeRepository.count();
+        if ((afterDelete + 1) == beforeDelete) {
+            return ResponseDTO.SuccessStatus();
+        }
+        //@Todo 삭제에 실패한다면 여기에 도달하지 못하는 문제가 있음
+        return ResponseDTO.FailStatus();
     }
 }
