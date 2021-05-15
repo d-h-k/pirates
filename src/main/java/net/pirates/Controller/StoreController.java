@@ -1,13 +1,12 @@
 package net.pirates.Controller;
 
-import net.pirates.DTOs.AddHolidayDTO;
-import net.pirates.DTOs.AddStoreDTO;
-import net.pirates.DTOs.StoreDTO;
-import net.pirates.DTOs.StoreDetailDTO;
+import net.pirates.DTOs.*;
 import net.pirates.Service.StoreService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+
+import static net.pirates.DTOs.ResponseDTO.SuccessStatus;
 
 @RestController
 @RequestMapping("/store")
@@ -20,13 +19,15 @@ public class StoreController {
     }
 
     @PostMapping
-    public void addStore(@RequestBody AddStoreDTO storeInfo) {
+    public ResponseDTO addStore(@RequestBody AddStoreDTO storeInfo) {
         storeService.addStore(storeInfo);
+        return SuccessStatus();
     }
 
     @PostMapping("/holidays")
-    public void addHoliday(@RequestBody AddHolidayDTO holidayDTO) {
+    public ResponseDTO addHoliday(@RequestBody AddHolidayDTO holidayDTO) {
         storeService.addHoliday(holidayDTO);
+        return SuccessStatus();
     }
 
     @GetMapping
@@ -35,7 +36,7 @@ public class StoreController {
     }
 
     @GetMapping("/detail")
-    public StoreDetailDTO storeDetail(@RequestBody Long id) {
+    public StoreDetailDTO storeDetail(@RequestParam Long id) {
         return storeService.storeDetail(id);
     }
 
