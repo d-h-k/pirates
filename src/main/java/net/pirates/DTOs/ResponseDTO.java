@@ -5,12 +5,12 @@ enum ResponseStatus {SUCCESS, FAIL}
 public class ResponseDTO {
 
 
-    private final Boolean isError;
+    private final Boolean error;
     private final Integer code;
     private final String message;
 
-    private ResponseDTO(Boolean isError, Integer code, String message) {
-        this.isError = isError;
+    private ResponseDTO(Boolean error, Integer code, String message) {
+        this.error = error;
         this.code = code;
         this.message = message;
     }
@@ -23,5 +23,24 @@ public class ResponseDTO {
         return new ResponseDTO(true, 1, "FAIL");
     }
 
+    public Boolean getError() {
+        return error;
+    }
 
+    public Integer getCode() {
+        return code;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    @Override
+    public String toString() {
+        return "ResponseDTO{" +
+                "error=" + error +
+                ", code=" + code +
+                ", message='" + message + '\'' +
+                '}';
+    }
 }
