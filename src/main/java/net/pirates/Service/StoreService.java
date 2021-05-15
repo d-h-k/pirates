@@ -30,6 +30,7 @@ public class StoreService {
 
         // 추가
     }
+
     public List<StoreDTO> storeList() {
         List<Store> storeList = storeRepository.findAll();
         List<StoreDTO> storeDTOList_OPEN = new ArrayList<>();

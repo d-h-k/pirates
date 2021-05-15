@@ -14,7 +14,7 @@ public class StoreDTO {
         this.level = store.getLevel();
         this.businessStatus = "OPEN";
         // @Todo 시간으로 영업중인지 아닌지 판단해서 문자열 넣어주기
-                //store.getBusinessTimes();
+        //store.getBusinessTimes();
     }
 
     public String getName() {
