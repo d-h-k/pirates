@@ -42,7 +42,7 @@ public class StoreController {
 
 
     @PostMapping("/delete")
-    public void storeDelete(@RequestBody Long id) {
+    public void storeDelete(@RequestParam Long id) {
         storeService.delete(id);
     }
 
