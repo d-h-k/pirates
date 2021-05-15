@@ -1,5 +1,6 @@
 package net.pirates.DTOs;
 
+import net.pirates.Domain.BusinessTime;
 import net.pirates.Domain.Store;
 
 import java.util.ArrayList;
@@ -21,8 +22,11 @@ public class StoreDetailDTO {
         this.level = store.getLevel();
         this.address = store.getAddress();
         this.phone = store.getPhone();
-        this.businessDays = new ArrayList<>();//store.getBusinessTimes();
-        //@TODO 비지니스데이 구현해야함
+        this.businessDays = new ArrayList<>();
+        List<BusinessTime> businessTimes = store.getBusinessTimes();
+        for(BusinessTime time : businessTimes) {
+            this.businessDays.add(new BusinessSubDTO(time));
+        }
     }
 
     public Long getId() {
