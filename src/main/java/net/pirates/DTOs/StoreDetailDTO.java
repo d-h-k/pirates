@@ -6,13 +6,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class StoreDetailDTO {
-    private Long id;
-    private String name;
-    private String description;
-    private Integer level;
-    private String address;
-    private String phone;
-    private List<BusinessSubDTO> businessDays;
+    private final Long id;
+    private final String name;
+    private final String description;
+    private final Integer level;
+    private final String address;
+    private final String phone;
+    private final List<BusinessSubDTO> businessDays;
 
     public StoreDetailDTO(Store store) {
         this.id = store.getId();
@@ -25,4 +25,44 @@ public class StoreDetailDTO {
         //@TODO 비지니스데이 구현해야함
     }
 
+    public Long getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public Integer getLevel() {
+        return level;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public List<BusinessSubDTO> getBusinessDays() {
+        return businessDays;
+    }
+
+    @Override
+    public String toString() {
+        return "StoreDetailDTO{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", level=" + level +
+                ", address='" + address + '\'' +
+                ", phone='" + phone + '\'' +
+                ", businessDays=" + businessDays +
+                '}';
+    }
 }
