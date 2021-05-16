@@ -114,10 +114,15 @@ drop table if exists store CASCADE;
 #### 테스트를 위해 ec2 에도 배포하였습니다
 - 서버주소 : http://3.35.226.74 
 - 8080포트로 접근하지 않고 80번 포트로 접근해도 포트포워딩이 되도록 Nginx를 설정하였습니다
-|  번호  | 구분    | 메서드| URL   | ec2 서버 테스트 |   
-| :----: | :-----: | :-----: | ----- | ----- |
-|1| 점포 추가 | POST |/store|http://3.35.226.74/store|
-|2| 점포 휴무일 등록 |POST|/store/holidays|http://3.35.226.74/holidays|
-|3| 점포 목록 조회 |GET|/store|http://3.35.226.74/store|
-|4| 점포 상세 조회 |GET|/store/detail|http://3.35.226.74/store/detail?id=1|
-|5| 점포 삭제|POST|/store/delete|http://3.35.226.74/store/delete?id=1|
+
+
+
+| 번호 |       구분       | 메서드 | URL             | ec2 서버 테스트                      |
+| :--: | :--------------: | :----: | --------------- | ------------------------------------ |
+|  1   |    점포 추가     |  POST  | /store          | http://3.35.226.74/store             |
+|  2   | 점포 휴무일 등록 |  POST  | /store/holidays | http://3.35.226.74/holidays          |
+|  3   |  점포 목록 조회  |  GET   | /store          | http://3.35.226.74/store             |
+|  4   |  점포 상세 조회  |  GET   | /store/detail   | http://3.35.226.74/store/detail?id=1 |
+|  5   |    점포 삭제     |  POST  | /store/delete   | http://3.35.226.74/store/delete?id=1 |
+
+
