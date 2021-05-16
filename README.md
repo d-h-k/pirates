@@ -117,12 +117,12 @@ drop table if exists store CASCADE;
 
 
 
-| 번호 |       구분       | 메서드 | URL             | ec2 서버 테스트                      |
-| :--: | :--------------: | :----: | --------------- | ------------------------------------ |
-|  1   |    점포 추가     |  POST  | /store          | http://3.35.226.74/store             |
-|  2   | 점포 휴무일 등록 |  POST  | /store/holidays | http://3.35.226.74/holidays          |
+| 번호 |       구분       | 메서드 | URL             | ec2 서버 테스트 주소                  | ec2 서버 테스트 명령어 |
+| :--: | :--------------: | :----: | --------------- | ------------------------------------ | --------------------------------- |
+|  1   |    점포 추가     |  POST  | /store          | | curl -x POST http://3.35.226.74/store  +{데이터}          | 
+|  2   | 점포 휴무일 등록 |  POST  | /store/holidays | | curl -x POST http://3.35.226.74/holidays +{데이터}  |
 |  3   |  점포 목록 조회  |  GET   | /store          | http://3.35.226.74/store             |
 |  4   |  점포 상세 조회  |  GET   | /store/detail   | http://3.35.226.74/store/detail?id=1 |
-|  5   |    점포 삭제     |  POST  | /store/delete   | http://3.35.226.74/store/delete?id=1 |
+|  5   |    점포 삭제     |  POST  | /store/delete   | | curl -x POST http://3.35.226.74/store/delete?id=1 +{데이터} |
 
 
