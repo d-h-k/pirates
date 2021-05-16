@@ -106,3 +106,18 @@ drop table if exists store CASCADE;
 |3| 점포 목록 조회 |GET|/store|http://localhost:8080/store|
 |4| 점포 상세 조회 |GET|/store/detail|http://localhost:8080/store/detail?id=1|
 |5| 점포 삭제|POST|/store/delete|http://localhost:8080/store/delete?id=1|
+
+- 아래 링크에서 Postman으로 테스트가 가능합니다
+
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/14974622-c2158aa5-e1a4-4b1e-8c12-38996b728aab?action=collection%2Ffork&collection-url=entityId%3D14974622-c2158aa5-e1a4-4b1e-8c12-38996b728aab%26entityType%3Dcollection%26workspaceId%3D2bae9cd5-f698-40a1-88c6-7a407088cc3b)
+
+#### 테스트를 위해 ec2 에도 배포하였습니다
+- 서버주소 : http://3.35.226.74 
+- 8080포트로 접근하지 않고 80번 포트로 접근해도 포트포워딩이 되도록 Nginx를 설정하였습니다
+|  번호  | 구분    | 메서드| URL   | ec2 서버 테스트 |   
+| :----: | :-----: | :-----: | ----- | ----- |
+|1| 점포 추가 | POST |/store|http://3.35.226.74/store|
+|2| 점포 휴무일 등록 |POST|/store/holidays|http://3.35.226.74/holidays|
+|3| 점포 목록 조회 |GET|/store|http://3.35.226.74/store|
+|4| 점포 상세 조회 |GET|/store/detail|http://3.35.226.74/store/detail?id=1|
+|5| 점포 삭제|POST|/store/delete|http://3.35.226.74/store/delete?id=1|
